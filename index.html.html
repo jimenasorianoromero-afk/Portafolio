@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jimena Soriano Romero — Architecture Major & BIM Coordinator</title>
+
+    <!-- Google Fonts: Syne (Ultra Bold display) & Plus Jakarta Sans (Clean geometric body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['Syne', 'sans-serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace'],
+                    },
+                    colors: {
+                        electric: {
+                            DEFAULT: '#0038FF',
+                            hover: '#002CD6',
+                            light: '#3360FF',
+                            soft: 'rgba(0, 56, 255, 0.08)',
+                            glow: 'rgba(0, 56, 255, 0.25)'
+                        },
+                        cream: {
+                            50: '#FAF9F5',
+                            DEFAULT: '#F4ECE1',
+                            dark: '#E8DEC8',
+                            muted: '#ECE3D4'
+                        },
+                        slate: {
+                            950: '#0B0F19',
+                            900: '#0F172A',
+                            800: '#1E293B',
+                            700: '#334155',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Blueprint & Grid background patterns inspired by Lu Yu & Sasaki */
+        .bg-grid-blue {
+            background-size: 32px 32px;
+            background-image: linear-gradient(to right, rgba(0, 56, 255, 0.08) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(0, 56, 255, 0.08) 1px, transparent 1px);
+        }
+
+        .bg-grid-dark {
+            background-size: 32px 32px;
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        }
+
+        /* Bold Marquee Text Animation */
+        @keyframes marquee {
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: 200%;
+            animation: marquee 25s linear infinite;
+        }
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F4ECE1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #0038FF;
+            border-radius: 0px;
+        }
+
+        /* Image hover zooms */
+        .zoom-img {
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .group:hover .zoom-img {
+            transform: scale(1.04);
+        }
+    </style>
+</head>
+<body class="bg-cream-50 text-slate-900 font-sans antialiased selection:bg-electric selection:text-white">
+
+    <!-- TOP ANNOUNCEMENT BAR / MARQUEE (Lu Yu / Justin Mabee editorial vibe) -->
+    <div class="bg-electric text-white overflow-hidden py-2 text-[11px] font-mono tracking-widest uppercase border-b border-electric-hover">
+        <div class="animate-marquee whitespace-nowrap flex space-x-12">
+            <span>• JIMENA SORIANO ROMERO — ARCHITECTURE MAJOR & BIM COORDINATOR</span>
+            <span>• FEDERATED MODEL MANAGEMENT (LOD 300 / 350)</span>
+            <span>• MULTI-DISCIPLINARY MEP & STRUCTURAL INTEGRATION</span>
+            <span>• MANHATTAN HIGH-RISE & RESIDENTIAL DESIGN</span>
+            <span>• JIMENA SORIANO ROMERO — ARCHITECTURE MAJOR & BIM COORDINATOR</span>
+            <span>• FEDERATED MODEL MANAGEMENT (LOD 300 / 350)</span>
+        </div>
+    </div>
+
+    <!-- MAIN NAVIGATION BAR -->
+    <header class="sticky top-0 z-50 bg-cream-50/90 backdrop-blur-md border-b border-slate-900/10 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Branding -->
+            <a href="#hero" class="flex flex-col group">
+                <span class="font-display font-900 text-xl sm:text-2xl tracking-tight text-slate-900 group-hover:text-electric transition-colors uppercase leading-none">
+                    JIMENA SORIANO
+                </span>
+                <span class="text-[10px] font-mono tracking-[0.3em] text-electric font-bold uppercase mt-1">
+                    ARCHITECTURE MAJOR
+                </span>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-8 text-xs font-mono font-bold tracking-widest uppercase">
+                <a href="#about" class="text-slate-700 hover:text-electric transition-colors">About</a>
+                <a href="#index" class="text-slate-700 hover:text-electric transition-colors">Project Index</a>
+                <a href="#project-1" class="text-slate-700 hover:text-electric transition-colors">01. Manhattan</a>
+                <a href="#project-2" class="text-slate-700 hover:text-electric transition-colors">02. Liverpool BIM</a>
+                <a href="#project-3" class="text-slate-700 hover:text-electric transition-colors">03. Suburbia MEP</a>
+                <a href="#project-5" class="text-slate-700 hover:text-electric transition-colors">04. Casa Tlapalli</a>
+            </nav>
+
+            <!-- Actions -->
+            <div class="flex items-center space-x-4">
+                <a href="mailto:A01659150@tec.mx" class="hidden sm:inline-flex px-5 py-2.5 bg-electric text-white text-xs font-mono font-bold uppercase tracking-widest hover:bg-slate-900 transition-all rounded-none shadow-md">
+                    A01659150@tec.mx
+                </a>
+                <button id="mobile-menu-btn" aria-label="Toggle Menu" class="md:hidden p-2 text-slate-900 focus:outline-none">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cream border-b border-slate-900/10 px-6 py-6 space-y-4 font-mono text-xs uppercase tracking-widest">
+            <a href="#about" class="block text-slate-900 font-bold hover:text-electric">About Me</a>
+            <a href="#index" class="block text-slate-900 font-bold hover:text-electric">Project Index</a>
+            <a href="#project-1" class="block text-slate-700 hover:text-electric">01. Manhattan Skyscraper</a>
+            <a href="#project-2" class="block text-slate-700 hover:text-electric">02. Liverpool Express BIM</a>
+            <a href="#project-3" class="block text-slate-700 hover:text-electric">03. Parroquia Suburbia MEP</a>
+            <a href="#project-5" class="block text-slate-700 hover:text-electric">04. Casa Tlapalli</a>
+            <a href="mailto:A01659150@tec.mx" class="block text-electric font-bold">A01659150@tec.mx</a>
+        </div>
+    </header>
+
+    <!-- ABOUT ME & HERO SECTION -->
+    <section id="hero" class="relative py-16 lg:py-24 bg-grid-blue border-b border-slate-900/10 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Main Header Callout -->
+                <div class="lg:col-span-8 space-y-6">
+                    <div class="inline-flex items-center space-x-3 px-3 py-1 bg-electric text-white font-mono text-[11px] font-bold tracking-widest uppercase">
+                        <span class="w-2 h-2 rounded-full bg-cream animate-ping"></span>
+                        <span>PORTFOLIO 2026 — METO ESTUDIO</span>
+                    </div>
+
+                    <h1 class="font-display font-900 text-5xl sm:text-7xl lg:text-8xl tracking-tight text-slate-900 leading-[0.95] uppercase">
+                        STRUCTURAL <br/>
+                        <span class="text-electric">PRECISION &</span> <br/>
+                        ARCHITECTURE.
+                    </h1>
+
+                    <!-- ABOUT ME BLOCK -->
+                    <div id="about" class="bg-cream border-2 border-slate-900 p-6 space-y-3 shadow-lg my-6">
+                        <div class="flex items-center justify-between border-b border-slate-900/20 pb-2">
+                            <span class="text-xs font-mono font-bold text-electric uppercase tracking-widest flex items-center gap-2">
+                                <i class="fa-solid fa-user-graduate"></i> ABOUT ME
+                            </span>
+                            <span class="text-[10px] font-mono text-slate-500 font-bold uppercase">ITESM • BIM CERTIFIED</span>
+                        </div>
+                        <p class="text-slate-900 font-sans text-base sm:text-lg font-medium leading-relaxed">
+                            "Hi there! I’m Jimena Soriano, an architecture undergrad that finds the beauty in solving problems. I studied at ITESM and have a BIM certification."
+                        </p>
+                    </div>
+
+                    <p class="text-slate-700 text-sm sm:text-base font-mono leading-relaxed border-l-4 border-electric pl-4">
+                        Comprehensive architectural portfolio presenting high-rise contextual urbanism, federated BIM coordination (<strong class="text-slate-900 font-bold">LOD 300 / 350</strong>), multi-disciplinary MEP integration, structural rebar modeling, and residential craftsmanship.
+                    </p>
+                </div>
+
+                <!-- Right Side Summary Box -->
+                <div class="lg:col-span-4">
+                    <div class="bg-slate-900 text-cream p-8 border-2 border-electric space-y-6 shadow-2xl relative">
+                        <div class="border-b border-slate-700 pb-4">
+                            <span class="text-[10px] font-mono text-electric tracking-widest uppercase font-bold">PRACTICE SUMMARY</span>
+                            <h2 class="font-display font-800 text-xl text-white mt-1">JIMENA SORIANO ROMERO</h2>
+                            <p class="text-xs font-mono text-slate-400">ITESM Architecture Undergrad • Certified BIM Specialist</p>
+                        </div>
+
+                        <div class="space-y-3 font-mono text-xs">
+                            <div class="flex justify-between border-b border-slate-800 pb-2">
+                                <span class="text-slate-400">INSTITUTION:</span>
+                                <span class="text-white font-bold">ITESM (Tec de Monterrey)</span>
+                            </div>
+                            <div class="flex justify-between border-b border-slate-800 pb-2">
+                                <span class="text-slate-400">CERTIFICATION:</span>
+                                <span class="text-electric font-bold">BIM Certified Specialist</span>
+                            </div>
+                            <div class="flex justify-between border-b border-slate-800 pb-2">
+                                <span class="text-slate-400">EMAIL:</span>
+                                <a href="mailto:A01659150@tec.mx" class="text-white hover:text-electric font-bold underline">A01659150@tec.mx</a>
+                            </div>
+                            <div class="flex justify-between">
+                                <span class="text-slate-400">DISCIPLINE:</span>
+                                <span class="text-white font-bold">ARQ | EST | MEP</span>
+                            </div>
+                        </div>
+
+                        <a href="mailto:A01659150@tec.mx" class="w-full py-3 bg-electric hover:bg-electric-hover text-white text-xs font-mono font-bold uppercase tracking-widest transition-all flex items-center justify-center space-x-2">
+                            <span><i class="fa-solid fa-envelope"></i> Email Jimena</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECT FILTER & INDEX SECTION (Sasaki / Mike Kelley catalog view) -->
+    <section id="index" class="py-12 bg-cream border-b border-slate-900/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-slate-900/20 pb-6">
+                <div>
+                    <span class="text-xs font-mono text-electric uppercase font-bold tracking-widest block">SELECTED WORKS</span>
+                    <h2 class="font-display font-800 text-3xl sm:text-4xl text-slate-900 uppercase">PROJECT CATALOGUE</h2>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="flex flex-wrap gap-2 font-mono text-xs font-bold uppercase">
+                    <button onclick="filterProjects('all')" class="filter-btn active-filter px-4 py-2 bg-electric text-white border border-electric">
+                        All Projects
+                    </button>
+                    <button onclick="filterProjects('bim')" class="filter-btn px-4 py-2 bg-cream-50 text-slate-700 border border-slate-900/20 hover:border-electric">
+                        BIM & Coordination
+                    </button>
+                    <button onclick="filterProjects('urban')" class="filter-btn px-4 py-2 bg-cream-50 text-slate-700 border border-slate-900/20 hover:border-electric">
+                        Urban High-Rise
+                    </button>
+                    <button onclick="filterProjects('residential')" class="filter-btn px-4 py-2 bg-cream-50 text-slate-700 border border-slate-900/20 hover:border-electric">
+                        Residential
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quick Jump Grid Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Card 1 -->
+                <a href="#project-1" class="project-thumb-card group bg-cream-50 border border-slate-900/20 p-5 hover:border-electric transition-all" data-cat="urban">
+                    <div class="flex justify-between items-start text-xs font-mono text-slate-500 mb-4">
+                        <span>PROJECT 01</span>
+                        <span class="text-electric font-bold">NEW YORK</span>
+                    </div>
+                    <h3 class="font-display font-800 text-xl text-slate-900 group-hover:text-electric uppercase transition-colors">
+                        MANHATTAN SKYSCRAPER
+                    </h3>
+                    <p class="text-xs text-slate-600 mt-2 line-clamp-2">
+                        Contextual urban skyscraper based on the diagonal composition axis of Broadway.
+                    </p>
+                    <span class="mt-4 text-[11px] font-mono text-electric font-bold inline-block">Explore Project →</span>
+                </a>
+
+                <!-- Card 2 -->
+                <a href="#project-2" class="project-thumb-card group bg-cream-50 border border-slate-900/20 p-5 hover:border-electric transition-all" data-cat="bim">
+                    <div class="flex justify-between items-start text-xs font-mono text-slate-500 mb-4">
+                        <span>PROJECT 02</span>
+                        <span class="text-electric font-bold">REYNOSA</span>
+                    </div>
+                    <h3 class="font-display font-800 text-xl text-slate-900 group-hover:text-electric uppercase transition-colors">
+                        LIVERPOOL EXPRESS BIM
+                    </h3>
+                    <p class="text-xs text-slate-600 mt-2 line-clamp-2">
+                        120.7 m² retail store federated model coordination with LOD 300/350 structures.
+                    </p>
+                    <span class="mt-4 text-[11px] font-mono text-electric font-bold inline-block">Explore Project →</span>
+                </a>
+
+                <!-- Card 3 -->
+                <a href="#project-3" class="project-thumb-card group bg-cream-50 border border-slate-900/20 p-5 hover:border-electric transition-all" data-cat="bim">
+                    <div class="flex justify-between items-start text-xs font-mono text-slate-500 mb-4">
+                        <span>PROJECT 03</span>
+                        <span class="text-electric font-bold">METO ESTUDIO</span>
+                    </div>
+                    <h3 class="font-display font-800 text-xl text-slate-900 group-hover:text-electric uppercase transition-colors">
+                        PARROQUIA SUBURBIA
+                    </h3>
+                    <p class="text-xs text-slate-600 mt-2 line-clamp-2">
+                        10-discipline MEP engineering & structural rebar modeling.
+                    </p>
+                    <span class="mt-4 text-[11px] font-mono text-electric font-bold inline-block">Explore Project →</span>
+                </a>
+
+                <!-- Card 4 -->
+                <a href="#project-5" class="project-thumb-card group bg-cream-50 border border-slate-900/20 p-5 hover:border-electric transition-all" data-cat="residential">
+                    <div class="flex justify-between items-start text-xs font-mono text-slate-500 mb-4">
+                        <span>PROJECT 05</span>
+                        <span class="text-electric font-bold">COYOACÁN</span>
+                    </div>
+                    <h3 class="font-display font-800 text-xl text-slate-900 group-hover:text-electric uppercase transition-colors">
+                        CASA TLAPALLI
+                    </h3>
+                    <p class="text-xs text-slate-600 mt-2 line-clamp-2">
+                        341 m² single-family residence featuring terracotta brickwork, bearing walls & solid slab.
+                    </p>
+                    <span class="mt-4 text-[11px] font-mono text-electric font-bold inline-block">Explore Project →</span>
+                </a>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- DETAILED PROJECT SECTION LIST -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-32">
+
+        <!-- ==========================================
+             PROJECT 1: MANHATTAN SKYSCRAPER
+        ========================================== -->
+        <article id="project-1" class="project-block space-y-10 scroll-mt-28" data-category="urban">
+            
+            <div class="border-b-2 border-slate-900 pb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <span class="text-xs font-mono font-bold text-electric uppercase tracking-widest">PROJECT 01 — URBAN ANALYSIS & HIGH-RISE</span>
+                    <h2 class="font-display font-900 text-4xl sm:text-5xl text-slate-900 uppercase">MANHATTAN SKYSCRAPER</h2>
+                </div>
+                <div class="text-xs font-mono bg-electric text-white px-4 py-2 font-bold uppercase tracking-wider">
+                    Location: Manhattan, NY • Concept Phase
+                </div>
+            </div>
+
+            <!-- Urban Grid Analysis & Concept -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Interactive Blueprint Graphic Canvas -->
+                <div class="lg:col-span-7 bg-slate-900 text-cream p-6 border-2 border-slate-900 shadow-xl space-y-4">
+                    <div class="flex justify-between items-center text-xs font-mono border-b border-slate-800 pb-3">
+                        <span class="text-electric font-bold flex items-center gap-2">
+                            <i class="fa-solid fa-map-location-dot"></i> BROADWAY COMPOSITIONAL AXIS DIAGRAM
+                        </span>
+                        <span class="text-slate-400">URBAN GRID ANALYSIS</span>
+                    </div>
+
+                    <!-- SVG Urban Diagram -->
+                    <div class="relative bg-slate-950 aspect-[4/3] border border-slate-800 flex items-center justify-center p-4 overflow-hidden group">
+                        
+                        <svg class="w-full h-full text-slate-700" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Urban Blocks Grid -->
+                            <rect x="20" y="20" width="90" height="40" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+                            <rect x="130" y="20" width="100" height="40" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+                            <rect x="250" y="20" width="110" height="40" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+                            <rect x="380" y="20" width="100" height="40" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+
+                            <rect x="20" y="80" width="90" height="50" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+                            <rect x="130" y="80" width="100" height="50" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+                            <rect x="250" y="80" width="110" height="50" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+                            <rect x="380" y="80" width="100" height="50" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+
+                            <rect x="20" y="150" width="90" height="50" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+                            <rect x="130" y="150" width="100" height="50" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+                            
+                            <!-- Highlighted Target Site -->
+                            <path d="M250 150 L360 150 L360 200 L280 200 L250 175 Z" fill="#0038FF" opacity="0.8" stroke="#FFFFFF" stroke-width="2"/>
+                            
+                            <rect x="380" y="150" width="100" height="50" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+
+                            <rect x="20" y="220" width="90" height="50" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+                            <rect x="130" y="220" width="100" height="50" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+                            <rect x="250" y="220" width="110" height="50" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+                            <rect x="380" y="220" width="100" height="50" fill="#1E293B" stroke="#334155" stroke-width="1.5"/>
+
+                            <!-- Broadway Diagonal Line -->
+                            <line x1="80" y1="380" x2="350" y2="10" stroke="#F59E0B" stroke-width="4" stroke-dasharray="6 3"/>
+                            <line x1="220" y1="380" x2="460" y2="20" stroke="#F59E0B" stroke-width="2"/>
+
+                            <!-- Text Annotations -->
+                            <text x="130" y="320" fill="#F59E0B" font-family="monospace" font-size="14" font-weight="bold" letter-spacing="2">BROADWAY AXIS</text>
+                            <text x="260" y="180" fill="#FFFFFF" font-family="sans-serif" font-size="11" font-weight="bold">TARGET SITE</text>
+                        </svg>
+
+                        <button onclick="openModal('Manhattan Skyscraper — Urban Analysis', 'Because our site is situated on the same urban corridor as Broadway, we established this diagonal line as the main compositional axis for the skyscraper geometry.', 'urban')" class="absolute bottom-4 right-4 bg-electric text-white font-mono text-xs px-3 py-2 font-bold uppercase tracking-wider flex items-center gap-2 hover:bg-slate-900 transition-all">
+                            <i class="fa-solid fa-expand"></i> Inspect Map
+                        </button>
+                    </div>
+
+                    <p class="text-xs font-mono text-slate-400">
+                        Figure 1.1 — Manhattan street grid context & Broadway diagonal alignment study.
+                    </p>
+                </div>
+
+                <!-- Text & Concept Explanation -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="bg-electric/10 border-l-4 border-electric p-6 space-y-2">
+                        <span class="text-xs font-mono font-bold text-electric uppercase tracking-wider">Design Concept Statement</span>
+                        <p class="text-slate-900 font-serif italic text-lg sm:text-xl font-medium leading-relaxed">
+                            "Since our site is located on the same strip as Broadway, we decided to use this diagonal line as the main compositional axis of the project."
+                        </p>
+                    </div>
+
+                    <div class="text-slate-700 text-sm leading-relaxed space-y-4">
+                        <p>
+                            The urban layout of Manhattan's grid is interrupted by Broadway's historical path. The skyscraper volume articulates set-backs and angled facade cuts aligned with this diagonal axis, allowing natural sunlight penetration and visual connectivity with surrounding avenues.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 font-mono text-xs pt-4">
+                        <div class="p-4 bg-cream border border-slate-900/10">
+                            <span class="text-slate-500 uppercase block">COMPOSITIONAL AXIS</span>
+                            <span class="font-bold text-slate-900 text-sm mt-1 block">Broadway Diagonal</span>
+                        </div>
+                        <div class="p-4 bg-cream border border-slate-900/10">
+                            <span class="text-slate-500 uppercase block">TYPOLOGY</span>
+                            <span class="font-bold text-slate-900 text-sm mt-1 block">Mixed-Use High-Rise</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- NEWLY ADDED MANHATTAN RENDERS GALLERY SECTION -->
+            <div class="space-y-6 pt-6">
+                <div class="flex items-center justify-between border-b border-slate-900/20 pb-3">
+                    <h3 class="font-display font-800 text-2xl text-slate-900 uppercase">PROJECT RENDERING GALLERY</h3>
+                    <span class="text-xs font-mono text-electric font-bold">2 ARCHITECTURAL RENDERS</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- Render 1: Street Level Diagrid / Hermès Store -->
+                    <div class="bg-slate-900 border-2 border-slate-900 p-4 space-y-3 group shadow-xl">
+                        <div class="relative aspect-[16/10] overflow-hidden bg-slate-950 border border-slate-800">
+                            <!-- High-fidelity inline SVG Data URI for Manhattan_1.jpg -->
+                            <<img src="images/ Manhattan _1.jpg" alt=" Manhattan 2"> ">
+                            <button onclick="openModalImage('Street Level &amp; Diagrid Structural Facade', 'High-level street view render showing the iconic white diagonal structural diagrid columns forming grand glazed public entries and high-end retail frontage.', 'data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 1200 750\' width=\'100%\' height=\'100%\'><defs><linearGradient id=\'sky\' x1=\'0\' y1=\'0\' x2=\'0\' y2=\'1\'><stop offset=\'0%\' stop-color=\'%231b263b\'/><stop offset=\'50%\' stop-color=\'%23415a77\'/><stop offset=\'85%\' stop-color=\'%23e0a96d\'/><stop offset=\'100%\' stop-color=\'%23f4a261\'/></linearGradient><linearGradient id=\'glass\' x1=\'0\' y1=\'0\' x2=\'1\' y2=\'1\'><stop offset=\'0%\' stop-color=\'%230038FF\' stop-opacity=\'0.85\'/><stop offset=\'50%\' stop-color=\'%230f172a\' stop-opacity=\'0.9\'/><stop offset=\'100%\' stop-color=\'%23ffb703\' stop-opacity=\'0.3\'/></linearGradient></defs><rect width=\'1200\' height=\'750\' fill=\'url(%23sky)\'/><rect y=\'580\' width=\'1200\' height=\'170\' fill=\'%230b0f19\'/><rect x=\'40\' y=\'120\' width=\'520\' height=\'460\' fill=\'url(%23glass)\'/><path d=\'M60 580 L280 140 L340 140 L120 580 Z\' fill=\'%23f8fafc\'/><path d=\'M520 580 L300 140 L240 140 L460 580 Z\' fill=\'%23e2e8f0\'/><rect x=\'640\' y=\'80\' width=\'520\' height=\'500\' fill=\'url(%23glass)\'/><path d=\'M660 580 L900 100 L960 100 L720 580 Z\' fill=\'%23f8fafc\'/><path d=\'M1140 580 L920 100 L860 100 L1080 580 Z\' fill=\'%23e2e8f0\'/><text x=\'110\' y=\'525\' fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'32\' font-weight=\'900\' letter-spacing=\'4\'>HERMÈS</text></svg>')" class="absolute top-3 right-3 bg-electric text-white p-2.5 text-xs font-mono uppercase font-bold flex items-center gap-2 hover:bg-slate-900 transition-all shadow-lg">
+                                <i class="fa-solid fa-expand"></i> Inspect View
+                            </button>
+                        </div>
+                        <div class="flex justify-between items-center text-xs font-mono text-cream pt-1">
+                            <span class="font-bold text-electric">01. STREET LEVEL &amp; STRUCTURAL DIAGRID</span>
+                            <span class="text-slate-400">PEDESTRIAN VIEW</span>
+                        </div>
+                    </div>
+
+                    <!-- Render 2: Aerial Night View facing Central Park -->
+                    <div class="bg-slate-900 border-2 border-slate-900 p-4 space-y-3 group shadow-xl">
+                        <div class="relative aspect-[16/10] overflow-hidden bg-slate-950 border border-slate-800">
+                            <!-- High-fidelity inline SVG Data URI for Manhattan_tormenta.png -->
+                            <img src="images/Suburbia_1.jpg" alt="Suburbia_2">
+                            <button onclick="openModalImage('Aerial Skyline Perspective — Facing Central Park', 'Dramatic night aerial view over Midtown Manhattan showing the illuminated skyscraper massing angled along the Broadway diagonal axis overlooking Central Park.', 'data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 1200 750\' width=\'100%\' height=\'100%\'><defs><linearGradient id=\'night\' x1=\'0\' y1=\'0\' x2=\'0\' y2=\'1\'><stop offset=\'0%\' stop-color=\'%23030712\'/><stop offset=\'60%\' stop-color=\'%230f172a\'/><stop offset=\'100%\' stop-color=\'%231e1b4b\'/></linearGradient></defs><rect width=\'1200\' height=\'750\' fill=\'url(%23night)\'/><path d=\'M380 80 Q600 130 820 90 L850 220 Q600 240 350 200 Z\' fill=\'%23064e3b\'/><path d=\'M520 200 L620 230 L600 680 L500 680 Z\' fill=\'%230038FF\' stroke=\'%23ffffff\' stroke-width=\'3\'/></svg>')" class="absolute top-3 right-3 bg-electric text-white p-2.5 text-xs font-mono uppercase font-bold flex items-center gap-2 hover:bg-slate-900 transition-all shadow-lg">
+                                <i class="fa-solid fa-expand"></i> Inspect View
+                            </button>
+                        </div>
+                        <div class="flex justify-between items-center text-xs font-mono text-cream pt-1">
+                            <span class="font-bold text-electric">02. AERIAL SKYLINE NIGHT PERSPECTIVE</span>
+                            <span class="text-slate-400">CENTRAL PARK CONTEXT</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </article>
+
+
+        <!-- ==========================================
+             PROJECT 2: LIVERPOOL EXPRESS BIM
+        ========================================== -->
+        <article id="project-2" class="project-block space-y-10 border-t-2 border-slate-900/20 pt-20 scroll-mt-28" data-category="bim">
+            
+            <div class="border-b-2 border-slate-900 pb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <span class="text-xs font-mono font-bold text-electric uppercase tracking-widest">PROJECT 02 — FEDERATED BIM MODEL</span>
+                    <h2 class="font-display font-900 text-4xl sm:text-5xl text-slate-900 uppercase">LIVERPOOL EXPRESS BIM</h2>
+                </div>
+                <div class="flex items-center space-x-2 font-mono text-xs">
+                    <span class="bg-slate-900 text-white px-3 py-1 font-bold">LOD 300 (ARQ/MEP)</span>
+                    <span class="bg-electric text-white px-3 py-1 font-bold">LOD 350 (EST)</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Left: Project Specs & Lessons Learned -->
+                <div class="lg:col-span-5 space-y-6">
+                    
+                    <div class="bg-cream p-6 border border-slate-900/20 space-y-4">
+                        <h3 class="font-display font-800 text-lg text-slate-900 uppercase border-b border-slate-900/20 pb-3 flex justify-between items-center">
+                            <span>General Data</span>
+                            <i class="fa-solid fa-circle-info text-electric"></i>
+                        </h3>
+
+                        <ul class="space-y-3 font-mono text-xs text-slate-700">
+                            <li class="flex justify-between border-b border-slate-900/10 pb-2">
+                                <span class="text-slate-500">• LOCATION:</span>
+                                <span class="font-bold text-slate-900 text-right">Lib. Monterrey 212, Reynosa</span>
+                            </li>
+                            <li class="flex justify-between border-b border-slate-900/10 pb-2">
+                                <span class="text-slate-500">• PROJECT TYPE:</span>
+                                <span class="font-bold text-slate-900">Department Store (LEX)</span>
+                            </li>
+                            <li class="flex justify-between border-b border-slate-900/10 pb-2">
+                                <span class="text-slate-500">• ENVIRONMENT:</span>
+                                <span class="text-slate-800 text-right">Developing land zone</span>
+                            </li>
+                            <li class="flex justify-between border-b border-slate-900/10 pb-2">
+                                <span class="text-slate-500">• AREA:</span>
+                                <span class="font-bold text-electric text-sm">120.7 m²</span>
+                            </li>
+                            <li class="flex justify-between">
+                                <span class="text-slate-500">• LOD:</span>
+                                <span class="font-bold text-slate-900">300, 350 (Structure)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-slate-900 text-cream p-6 border-l-4 border-electric space-y-3 shadow-lg">
+                        <h4 class="text-xs font-mono text-electric uppercase font-bold tracking-widest flex items-center gap-2">
+                            <i class="fa-solid fa-lightbulb"></i> Lessons Learned
+                        </h4>
+                        <p class="text-xs sm:text-sm font-sans leading-relaxed italic text-slate-300">
+                            "Coordination does not end in detecting clashes; it is documenting decisions, assigning responsibilities, and following up. The federated model is used as a project management tool, with review, communication, and validation."
+                        </p>
+                    </div>
+
+                    <div class="bg-electric text-white p-5 space-y-2">
+                        <span class="text-xs font-mono font-bold uppercase tracking-wider block">Federated Model</span>
+                        <p class="text-xs text-cream-50 leading-relaxed">
+                            Integration of ARQ, EST, and MEP models in a common environment to review coordination, clashes, and compatibility between disciplines.
+                        </p>
+                    </div>
+
+                </div>
+
+                <!-- Right: Render & Wireframe Interactive Displays -->
+                <div class="lg:col-span-7 space-y-6">
+                    
+                    <!-- Render Card -->
+                    <div class="bg-slate-900 p-4 border border-slate-800 text-cream space-y-3">
+                        <div class="flex justify-between items-center text-xs font-mono">
+                            <span class="text-electric font-bold">LIVERPOOL EXPRESS RENDER</span>
+                            <span class="text-slate-400">EXTERIOR FACADE</span>
+                        </div>
+
+                        <div class="relative bg-slate-950 aspect-[16/9] border border-slate-800 overflow-hidden group">
+                            <!-- SVG Render representation matching Page 4 Liverpool Express Render -->
+                            <svg class="w-full h-full object-cover" viewBox="0 0 800 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="800" height="450" fill="#EAE8E3"/>
+                                <rect y="0" width="800" height="220" fill="#87CEEB"/> <!-- Sky -->
+                                <rect y="220" width="800" height="230" fill="#94A3B8"/> <!-- Ground -->
+                                <!-- Building Exterior -->
+                                <rect x="80" y="140" width="640" height="180" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="2"/>
+                                <rect x="120" y="200" width="560" height="120" fill="#1E293B"/>
+                                <rect x="120" y="170" width="560" height="30" fill="#D1D5DB"/>
+                                <!-- Glass Storefront Grid -->
+                                <rect x="360" y="210" width="160" height="110" fill="#0284C7" opacity="0.6"/>
+                                <line x1="440" y1="210" x2="440" y2="320" stroke="#FFFFFF" stroke-width="2"/>
+                                <line x1="360" y1="265" x2="520" y2="265" stroke="#FFFFFF" stroke-width="2"/>
+                                <!-- Dark Slatted Panel -->
+                                <rect x="540" y="210" width="120" height="110" fill="#0F172A"/>
+                                <line x1="555" y1="210" x2="555" y2="320" stroke="#334155" stroke-width="2"/>
+                                <line x1="570" y1="210" x2="570" y2="320" stroke="#334155" stroke-width="2"/>
+                                <line x1="585" y1="210" x2="585" y2="320" stroke="#334155" stroke-width="2"/>
+                                <line x1="600" y1="210" x2="600" y2="320" stroke="#334155" stroke-width="2"/>
+                                <line x1="615" y1="210" x2="615" y2="320" stroke="#334155" stroke-width="2"/>
+                                <line x1="630" y1="210" x2="630" y2="320" stroke="#334155" stroke-width="2"/>
+                                <line x1="645" y1="210" x2="645" y2="320" stroke="#334155" stroke-width="2"/>
+                                <!-- Liverpool Express Logo -->
+                                <rect x="220" y="152" width="280" height="35" fill="#1E293B"/>
+                                <text x="235" y="175" fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold">Liverpool</text>
+                                <text x="350" y="175" fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="300">| Express</text>
+                            </svg>
+
+                            <button onclick="openModal('Liverpool Express — Store Render', 'Official exterior render showing the department store facade, Liverpool logo branding, and curtain wall glazing.', 'render')" class="absolute top-4 right-4 bg-electric text-white p-2.5 text-xs font-mono uppercase font-bold flex items-center gap-2 hover:bg-slate-900 transition-all">
+                                <i class="fa-solid fa-expand"></i> View Render
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </article>
+
+
+        <!-- ==========================================
+             PROJECT 5: CASA TLAPALLI
+        ========================================== -->
+        <article id="project-5" class="project-block space-y-12 border-t-2 border-slate-900/20 pt-20 scroll-mt-28" data-category="residential">
+            
+            <div class="border-b-2 border-slate-900 pb-6 flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <span class="text-xs font-mono font-bold text-electric uppercase tracking-widest">PROJECT 05 — SINGLE FAMILY RESIDENCE</span>
+                    <h2 class="font-display font-900 text-4xl sm:text-5xl text-slate-900 uppercase">CASA TLAPALLI</h2>
+                    <p class="text-slate-600 font-mono text-xs mt-1">Coyoacán, Mexico City • Residential Project</p>
+                </div>
+                <div class="text-xs font-mono bg-electric text-white px-4 py-2 font-bold uppercase">
+                    Total Area: 341 m² (284 m² net + 20% circ.)
+                </div>
+            </div>
+
+            <!-- PERSPECTIVES & RENDERS GALLERY -->
+            <div class="space-y-6">
+                <h3 class="font-display font-800 text-2xl text-slate-900 uppercase">Architectural Renders & Perspectives</h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- Render 1 -->
+                    <div class="bg-cream border border-slate-900/20 p-4 space-y-3 group">
+                        <div class="relative bg-slate-900 aspect-[16/10] overflow-hidden border border-slate-800">
+                            <svg class="w-full h-full object-cover" viewBox="0 0 500 300" fill="none">
+                                <rect width="500" height="300" fill="#F4ECE1"/>
+                                <rect y="220" width="500" height="80" fill="#1E293B"/>
+                                <rect x="50" y="80" width="400" height="70" fill="#0038FF" opacity="0.8"/>
+                                <rect x="50" y="150" width="400" height="70" fill="#CBD5E1"/>
+                                <rect x="80" y="170" width="30" height="50" fill="#0F172A"/>
+                                <circle cx="120" cy="140" r="40" fill="#166534" opacity="0.7"/>
+                            </svg>
+                            <button onclick="openModal('Casa Tlapalli — Street Facade View', 'Sidewalk level perspective highlighting the upper terracotta brick celosia screen and front tree canopy.', 'render')" class="absolute top-3 right-3 bg-electric text-white p-2 text-xs font-mono uppercase font-bold flex items-center gap-2 hover:bg-slate-900 transition-all">
+                                <i class="fa-solid fa-expand"></i> Inspect View
+                            </button>
+                        </div>
+                        <span class="text-xs font-mono font-bold text-slate-900 uppercase block">1. SIDEWALK LEVEL FACADE VIEW</span>
+                    </div>
+
+                    <!-- Render 2 -->
+                    <div class="bg-cream border border-slate-900/20 p-4 space-y-3 group">
+                        <div class="relative bg-slate-900 aspect-[16/10] overflow-hidden border border-slate-800">
+                            <svg class="w-full h-full object-cover" viewBox="0 0 500 300" fill="none">
+                                <rect width="500" height="300" fill="#0F172A"/>
+                                <path d="M250 50 L400 130 L250 210 L100 130 Z" fill="#E2E8F0"/>
+                                <path d="M100 130 L250 210 L250 270 L100 190 Z" fill="#94A3B8"/>
+                                <path d="M400 130 L250 210 L250 270 L400 190 Z" fill="#64748B"/>
+                                <path d="M250 30 L420 120 L420 150 L250 60 Z" fill="#0038FF" opacity="0.8"/>
+                            </svg>
+                            <button onclick="openModal('Casa Tlapalli — Axonometric Cutaway', 'Axonometric perspective showcasing internal patio articulation, parapets, and roof deck slopes.', 'render')" class="absolute top-3 right-3 bg-electric text-white p-2 text-xs font-mono uppercase font-bold flex items-center gap-2 hover:bg-slate-900 transition-all">
+                                <i class="fa-solid fa-expand"></i> Inspect View
+                            </button>
+                        </div>
+                        <span class="text-xs font-mono font-bold text-slate-900 uppercase block">2. AXONOMETRIC CUTAWAY VIEW</span>
+                    </div>
+
+                    <!-- Render 3 -->
+                    <div class="bg-cream border border-slate-900/20 p-4 space-y-3 group">
+                        <div class="relative bg-slate-900 aspect-[16/10] overflow-hidden border border-slate-800">
+                            <svg class="w-full h-full object-cover" viewBox="0 0 500 300" fill="none">
+                                <rect width="500" height="300" fill="#0F172A"/>
+                                <rect x="150" y="40" width="200" height="200" fill="#15803D" opacity="0.4" stroke="#0038FF" stroke-width="6"/>
+                                <rect x="30" y="100" width="80" height="150" fill="#334155"/>
+                            </svg>
+                            <button onclick="openModal('Casa Tlapalli — Living Room to Garden', 'Interior perspective looking out toward the main private garden through full-height window glazing.', 'render')" class="absolute top-3 right-3 bg-electric text-white p-2 text-xs font-mono uppercase font-bold flex items-center gap-2 hover:bg-slate-900 transition-all">
+                                <i class="fa-solid fa-expand"></i> Inspect View
+                            </button>
+                        </div>
+                        <span class="text-xs font-mono font-bold text-slate-900 uppercase block">3. GARDEN VIEW FROM LIVING ROOM</span>
+                    </div>
+
+                    <!-- Render 4 -->
+                    <div class="bg-cream border border-slate-900/20 p-4 space-y-3 group">
+                        <div class="relative bg-slate-900 aspect-[16/10] overflow-hidden border border-slate-800">
+                            <svg class="w-full h-full object-cover" viewBox="0 0 500 300" fill="none">
+                                <rect width="500" height="300" fill="#1E293B"/>
+                                <path d="M50 250 L150 150 L150 250 Z" fill="#64748B"/>
+                                <rect x="220" y="160" width="220" height="90" fill="#F4ECE1"/>
+                            </svg>
+                            <button onclick="openModal('Casa Tlapalli — Kitchen & Staircase', 'View from dining area showing integrated kitchen island, terracotta wall tiles, and basalt staircase.', 'render')" class="absolute top-3 right-3 bg-electric text-white p-2 text-xs font-mono uppercase font-bold flex items-center gap-2 hover:bg-slate-900 transition-all">
+                                <i class="fa-solid fa-expand"></i> Inspect View
+                            </button>
+                        </div>
+                        <span class="text-xs font-mono font-bold text-slate-900 uppercase block">4. KITCHEN & STAIRCASE FROM DINING AREA</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- STRUCTURAL & SPATIAL CRITERIA -->
+            <div class="bg-slate-900 text-cream p-8 border-2 border-slate-900 space-y-6">
+                <h3 class="font-display font-800 text-2xl text-white uppercase border-b border-slate-800 pb-4 flex items-center gap-3">
+                    <i class="fa-solid fa-drafting-compass text-electric"></i> Structural & Spatial Design Criteria
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs font-sans text-slate-300 leading-relaxed">
+                    <div class="p-5 bg-slate-950 border border-slate-800 space-y-2 border-l-4 border-l-electric">
+                        <span class="font-mono text-electric font-bold uppercase block">• Bearing Wall System</span>
+                        <p>
+                            "Designed using load-bearing walls aligned consistently between upper and lower floors to guarantee structural continuity and even weight distribution."
+                        </p>
+                    </div>
+
+                    <div class="p-5 bg-slate-950 border border-slate-800 space-y-2 border-l-4 border-l-electric">
+                        <span class="font-mono text-electric font-bold uppercase block">• Solid Reinforced Slab</span>
+                        <p>
+                            "Complemented with 20 cm thick solid reinforced concrete slabs across floor levels."
+                        </p>
+                    </div>
+
+                    <div class="p-5 bg-slate-950 border border-slate-800 space-y-2 border-l-4 border-l-electric">
+                        <span class="font-mono text-electric font-bold uppercase block">• Parapet & Drainage</span>
+                        <p>
+                            "A 40 cm high perimeter parapet wall was designed to ensure proper rainwater runoff, along with 20 cm levelling fill for roof insulation."
+                        </p>
+                    </div>
+
+                    <div class="p-5 bg-slate-950 border border-slate-800 space-y-2 border-l-4 border-l-electric">
+                        <span class="font-mono text-electric font-bold uppercase block">• Grid Modulation</span>
+                        <p>
+                            "Strict structural modulation aligning beam lines and bearing walls to distribute loads efficiently and maintain structural simplicity."
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AREA SCHEDULE TABLE -->
+            <div class="space-y-4">
+                <h3 class="font-display font-800 text-2xl text-slate-900 uppercase">Architectural Program & Area Schedule</h3>
+
+                <div class="overflow-x-auto bg-cream border border-slate-900/20">
+                    <table class="w-full text-left font-mono text-xs">
+                        <thead class="bg-slate-900 text-white uppercase">
+                            <tr>
+                                <th class="p-3.5">Ground Level Space</th>
+                                <th class="p-3.5">Area (m²)</th>
+                                <th class="p-3.5">Upper Level Space</th>
+                                <th class="p-3.5">Area (m²)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-900/10 text-slate-800">
+                            <tr>
+                                <td class="p-3 font-bold">Parking Garage</td>
+                                <td class="p-3 text-electric font-bold">33 m²</td>
+                                <td class="p-3 font-bold">Guest Bedroom</td>
+                                <td class="p-3 text-electric font-bold">17.8 m²</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3">Foyer / Vestibule</td>
+                                <td class="p-3">6 m²</td>
+                                <td class="p-3">Bathroom 1</td>
+                                <td class="p-3">5 m²</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3">Half Bathroom</td>
+                                <td class="p-3">4 m²</td>
+                                <td class="p-3">Walk-in Closet 1</td>
+                                <td class="p-3">4.5 m²</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3">Dining Room</td>
+                                <td class="p-3">13.5 m²</td>
+                                <td class="p-3">Bedroom 2</td>
+                                <td class="p-3">19.5 m² (15 m² net)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3">Kitchen</td>
+                                <td class="p-3">14 m²</td>
+                                <td class="p-3">Bathroom 2</td>
+                                <td class="p-3">9 m² (13.5 m² total)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3">TV Room</td>
+                                <td class="p-3">10 m²</td>
+                                <td class="p-3">Bedroom 3</td>
+                                <td class="p-3">21 m² (14 m² net)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3">Studio / Home Office</td>
+                                <td class="p-3">16 m²</td>
+                                <td class="p-3">Bathroom 3</td>
+                                <td class="p-3">8 m² (10 m² total)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3">Laundry Room</td>
+                                <td class="p-3">6.5 m²</td>
+                                <td class="p-3">Walk-in Closet 3</td>
+                                <td class="p-3">8.5 m² (16 m² total)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3">Service Room</td>
+                                <td class="p-3">5.5 m²</td>
+                                <td class="p-3">Master Bedroom</td>
+                                <td class="p-3">21 m²</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3">Outdoor Terraces</td>
+                                <td class="p-3">30 m²</td>
+                                <td class="p-3">Master Bathroom</td>
+                                <td class="p-3">8 m² (5.5 m² priv)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3">Living Room & Patio</td>
+                                <td class="p-3">Included</td>
+                                <td class="p-3">Master Walk-in Closet</td>
+                                <td class="p-3">8.5 m² (30 m² total)</td>
+                            </tr>
+                        </tbody>
+                        <tfoot class="bg-slate-900 text-white font-bold border-t border-slate-900">
+                            <tr>
+                                <td colspan="3" class="p-4 text-right">TOTAL CONSTRUCTED AREA (+ 20% CIRCULATION):</td>
+                                <td class="p-4 text-electric text-sm">284 m² + 20% = 341 m²</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+            <!-- DRAWING KEY CODES -->
+            <div class="space-y-4">
+                <h3 class="font-display font-800 text-2xl text-slate-900 uppercase">Executive Construction Drawings Key</h3>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 font-mono text-xs">
+                    <div class="p-3 bg-slate-900 text-white text-center">
+                        <span class="text-electric font-bold block">ARQ-CT01</span>
+                        <span class="text-[10px] text-slate-400">Site Overall Plan</span>
+                    </div>
+                    <div class="p-3 bg-slate-900 text-white text-center">
+                        <span class="text-electric font-bold block">ARQ-CT02</span>
+                        <span class="text-[10px] text-slate-400">Urban Context Plan</span>
+                    </div>
+                    <div class="p-3 bg-slate-900 text-white text-center">
+                        <span class="text-electric font-bold block">ARQ-P01</span>
+                        <span class="text-[10px] text-slate-400">Ground Floor Plan</span>
+                    </div>
+                    <div class="p-3 bg-slate-900 text-white text-center">
+                        <span class="text-electric font-bold block">ARQ-P02</span>
+                        <span class="text-[10px] text-slate-400">Upper Floor Plan</span>
+                    </div>
+                    <div class="p-3 bg-slate-900 text-white text-center">
+                        <span class="text-electric font-bold block">ARQ-P03</span>
+                        <span class="text-[10px] text-slate-400">Roof Plan</span>
+                    </div>
+                    <div class="p-3 bg-slate-900 text-white text-center">
+                        <span class="text-electric font-bold block">ARQ-C01</span>
+                        <span class="text-[10px] text-slate-400">Building Section A-A'</span>
+                    </div>
+                    <div class="p-3 bg-slate-900 text-white text-center">
+                        <span class="text-electric font-bold block">ARQ-C02</span>
+                        <span class="text-[10px] text-slate-400">Building Section B-B'</span>
+                    </div>
+                    <div class="p-3 bg-slate-900 text-white text-center">
+                        <span class="text-electric font-bold block">ARQ-F01</span>
+                        <span class="text-[10px] text-slate-400">East Elevation</span>
+                    </div>
+                    <div class="p-3 bg-slate-900 text-white text-center">
+                        <span class="text-electric font-bold block">ARQ-F02</span>
+                        <span class="text-[10px] text-slate-400">South Elevation</span>
+                    </div>
+                </div>
+            </div>
+
+        </article>
+
+    </div>
+
+    <!-- FOOTER / CONTACT SECTION -->
+    <footer id="contact" class="bg-slate-900 text-cream py-20 border-t-4 border-electric font-mono">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-8 space-y-4">
+                    <span class="text-electric text-xs font-bold tracking-widest uppercase">PRACTICE & COLLABORATION</span>
+                    <h2 class="font-display font-900 text-4xl sm:text-5xl text-white uppercase">JIMENA SORIANO ROMERO</h2>
+                    <p class="text-slate-300 font-sans text-base max-w-xl leading-relaxed">
+                        Architecture undergrad at ITESM with BIM certification specializing in federated BIM coordination, executive drawing sets, structural modeling, and high-rise contextual design.
+                    </p>
+                    <div class="pt-2">
+                        <span class="text-xs text-slate-400 block">PRIMARY CONTACT EMAIL:</span>
+                        <a href="mailto:A01659150@tec.mx" class="text-electric font-bold text-lg hover:underline">A01659150@tec.mx</a>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-4 flex flex-col gap-4">
+                    <a href="mailto:A01659150@tec.mx" class="px-6 py-4 bg-electric hover:bg-electric-hover text-white font-bold text-xs uppercase tracking-widest transition-all flex items-center justify-between">
+                        <span><i class="fa-solid fa-paper-plane mr-2"></i> Send Inquiry</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <button onclick="copyContact()" class="px-6 py-4 bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs uppercase tracking-widest transition-all flex items-center justify-between">
+                        <span><i class="fa-solid fa-copy mr-2"></i> Copy Email: A01659150@tec.mx</span>
+                        <i class="fa-solid fa-check"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="border-t border-slate-800 pt-8 flex flex-col sm:flex-row justify-between text-[11px] text-slate-400 gap-4">
+                <div>
+                    © 2026 Jimena Soriano Romero • ITESM Architecture Major • A01659150@tec.mx
+                </div>
+                <div class="flex space-x-6">
+                    <span>LOD 300 / 350 Standards</span>
+                    <span>METO Estudio Coordination</span>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE LIGHTBOX MODAL -->
+    <div id="modal-lightbox" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="max-w-4xl w-full bg-slate-900 border-2 border-electric text-cream overflow-hidden flex flex-col max-h-[90vh]">
+            
+            <div class="p-4 bg-slate-950 border-b border-slate-800 flex justify-between items-center">
+                <div>
+                    <h3 id="modal-title" class="font-display font-800 text-lg text-white uppercase">Title</h3>
+                    <span class="text-[10px] font-mono text-electric font-bold uppercase">Architectural Detail Inspector</span>
+                </div>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-white p-2">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+
+            <div class="p-6 overflow-y-auto bg-slate-950 flex items-center justify-center flex-1">
+                <div id="modal-body" class="w-full flex justify-center">
+                    <!-- Dynamic graphic content injected via JS -->
+                </div>
+            </div>
+
+            <div class="p-4 bg-slate-900 border-t border-slate-800">
+                <p id="modal-desc" class="text-xs font-sans text-slate-300 leading-relaxed"></p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 bg-electric text-white px-5 py-3 font-mono text-xs font-bold uppercase shadow-2xl z-50 hidden flex items-center gap-2">
+        <i class="fa-solid fa-circle-check"></i>
+        <span>Contact info copied to clipboard.</span>
+    </div>
+
+    <!-- JAVASCRIPT FOR INTERACTIVITY -->
+    <script>
+        // Mobile Navigation Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Project Filter Function
+        function filterProjects(cat) {
+            const btns = document.querySelectorAll('.filter-btn');
+            const cards = document.querySelectorAll('.project-thumb-card');
+
+            btns.forEach(b => {
+                b.classList.remove('bg-electric', 'text-white');
+                b.classList.add('bg-cream-50', 'text-slate-700');
+            });
+
+            event.target.classList.add('bg-electric', 'text-white');
+            event.target.classList.remove('bg-cream-50', 'text-slate-700');
+
+            cards.forEach(card => {
+                if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // MEP Tab Switcher
+        function switchTab(tabId) {
+            const panels = document.querySelectorAll('.tab-panel');
+            const btns = document.querySelectorAll('.mep-tab');
+
+            panels.forEach(p => p.classList.add('hidden'));
+            btns.forEach(b => {
+                b.classList.remove('bg-electric', 'text-white');
+                b.classList.add('bg-slate-900', 'text-slate-400');
+            });
+
+            document.getElementById(tabId).classList.remove('hidden');
+            const activeBtn = document.getElementById('btn-' + tabId);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-electric', 'text-white');
+                activeBtn.classList.remove('bg-slate-900', 'text-slate-400');
+            }
+        }
+
+        // Modal Inspector Functions for SVG/Diagrams
+        function openModal(title, desc, type) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-desc').innerText = desc;
+
+            const body = document.getElementById('modal-body');
+            body.innerHTML = `
+                <div class="p-12 text-center text-slate-400 font-mono text-xs border border-slate-800 bg-slate-900 w-full">
+                    <i class="fa-solid fa-vector-square text-4xl text-electric mb-4 block"></i>
+                    <span>HIGH RESOLUTION VECTOR INSPECTION DISPLAY</span>
+                </div>
+            `;
+
+            document.getElementById('modal-lightbox').classList.remove('hidden');
+        }
+
+        // Modal Inspector Functions for Render Images
+        function openModalImage(title, desc, imgSrc) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-desc').innerText = desc;
+
+            const body = document.getElementById('modal-body');
+            body.innerHTML = `
+                <div class="w-full max-h-[70vh] flex justify-center items-center overflow-hidden bg-slate-950 p-2">
+                    <img src="${imgSrc}" class="max-h-[68vh] w-auto object-contain border border-slate-800" alt="${title}">
+                </div>
+            `;
+
+            document.getElementById('modal-lightbox').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('modal-lightbox').classList.add('hidden');
+        }
+
+        // Clipboard copy functionality
+        function copyContact() {
+            const text = "A01659150@tec.mx";
+            
+            const dummy = document.createElement("textarea");
+            document.body.appendChild(dummy);
+            dummy.value = text;
+            dummy.select();
+            document.execCommand("copy");
+            document.body.removeChild(dummy);
+
+            const toast = document.getElementById('toast');
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
